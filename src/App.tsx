@@ -1,15 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {FunctionComponent} from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/Home";
+import LoginPage from "./pages/Login";
+import { initializeApp } from 'firebase/app';
+import { config } from "./config/config";
+import AuthRoute from "./components/AuthRoute";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      <h1>3Devo</h1>
-      </header>
-    </div>
-  );
+initializeApp(config.firebaseConfig);
+
+export interface IApplicationProps {}
+
+const Application: FunctionComponent<IApplicationProps> = (props) => {
+return (
+  <BrowserRouter>
+  <Routes>
+    <Route path="/" element={<AuthRoute><HomePage /></AuthRoute>}/>
+    <Route path="/login" element={<LoginPage />}/>
+  </Routes>
+  </BrowserRouter>
+)
 }
 
-export default App;
+export default Application;
