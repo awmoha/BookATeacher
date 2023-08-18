@@ -1,12 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Footer } from "./Components/Footer";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <h1>3Devo</h1>
+        <h1>3Devo</h1>
+        <Footer/>
       </header>
     </div>
   );
