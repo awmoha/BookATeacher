@@ -9,6 +9,10 @@ const HomePage: FunctionComponent<ILoginPageProps> = (props) => {
         <div>
             <p>Home Page (skyddad av Firebase)</p>
             <button onClick={() => {signOut(auth)}}>Sign out of FireBase</button>
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
         </div>
     )
 }
