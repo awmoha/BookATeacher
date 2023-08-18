@@ -9,18 +9,20 @@ const AuthRoute: FunctionComponent<IAuthRouteProps> = props => {
     const navigate = useNavigate();
     const [loading,setLoading] = useState(false);
 
-    useEffect(() => {
-        const AuthCheck = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setLoading(false)
-            } else {
-                console.log('unautorized');
-                navigate('/login')
-            }
-            
-        });
-            return () => {AuthCheck()}
-    },[auth]);
+   useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+            setLoading(false);
+        } else {
+            console.log('unauthorized');
+            navigate('/login');
+        }
+    });
+
+    return () => {
+        unsubscribe(); // No need to call AuthCheck()
+    };
+}, [auth,navigate]);
 
 
     if (loading) return <p>
