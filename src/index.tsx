@@ -15,7 +15,6 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/footer" element={<Footer />} />
-
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
